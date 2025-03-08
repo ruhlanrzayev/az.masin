@@ -1,0 +1,8 @@
+
+
+/*# sourceMappingURL=responsive.css.map */
+@media screen and (max-width: 968px){
+    .pc-body {
+        display: none!important;
+    }
+}

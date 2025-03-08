@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="author" content="@ruhlanrzayev" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Masin.Az: Avtomobilləri burada seçirlər!</title>
+
+        <!-- Fav Icon -->
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="../CSS/reset.css" />
+        <link rel="stylesheet" href="../CSS/responsive.css" />
+        <link rel="stylesheet" href="../CSS/style.css" />
+
+        <!-- Custom SCSS -->
+        <link rel="stylesheet" href="../SCSS/responsive.scss" />
+        <link rel="stylesheet" href="../SCSS/style.scss" />
+
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </head>
+    <body>
+        <!-- Top Container (PC) -->
+        <div class="top-container">
+            <div class="container">
+                <div class="left-content">
+                    <span>Abc.az</span>
+                    <span>Abcd.az</span>
+                    <span>Abcde.az</span>
+                </div>
+                <div class="right-content">
+                    <p>Dəstək: <span class="otherSpan">(012) 345-67-89</span></p>
+                    <span>Yardım</span>
+                    <span>RU</span>
+                    <a id="favoriteCont"><i class="fa-solid fa-heart"></i> Seçilmişlər</a>
+                    <span><i class="fa-solid fa-user"></i> Giriş</span>
+                </div>
+            </div>
+        </div>
+        <!-- Login Container -->
+        <div class="login-container">
+            <i class="fa-solid fa-x"></i>
+            <div class="container">
+                <div class="content">
+                    <h1>MASIN.AZ</h1>
+                    <span>Öz elanlarınıza baxmağın, onları redaktə və bərpa etməyin rahat yolu</span>
+                    <button class="firstButton">Telefon nömrəsi ilə giriş</button>
+                    <button class="secondButton">Biznes hesabınıza giriş</button>
+                </div>
+            </div>
+            <p class="otherP">Saytda avtorizasiyadan keçməklə siz Masin.az-ın İstifadəçi razılaşmasını və Qaydalarını qəbul etdiyinizi təsdiqləmiş olursunuz.</p>
+        </div>
+        <!-- Top Container (Mobile) -->
+
+        <!-- Navbar Container (PC) -->
+        <div class="navbar-container">
+            <nav>
+                <div class="container">
+                    <div class="left-content">
+                        <div class="logo"><a href="../index.htm">MASIN.AZ</a></div>
+                        <div class="menu">
+                            <ul>
+                                <li><a href="#">Bütün elanlar</a></li>
+                                <li><a href="#">Dilerlər</a></li>
+                                <li><a href="#">Avtokataloq</a></li>
+                                <li><a href="#">Moto</a></li>
+                                <li class="firstHoverLi">
+                                    <a href="#">Ehtiyyat hissələr və aksesuarlar</a>
+                                    <ul class="navigatorMenu">
+                                        <li><a href="#">Akseuarlar</a></li>
+                                        <li><a href="#">Audio və video texnika</a></li>
+                                        <li><a href="#">Avtokosmetika və Avtokimya</a></li>
+                                        <li><a href="#">Ehtiyat hissələri</a></li>
+                                        <li><a href="#">GPS naviqatorlar</a></li>
+                                        <li><a href="#">Qeydiyyat nişanları</a></li>
+                                        <li><a href="#">Siqnalizasiyalar</a></li>
+                                        <li><a href="#">Videoqeydiyyatçılar</a></li>
+                                        <li><a href="#">Şinlər, disklər və təkərlər</a></li>
+                                        <li><a href="#">Digər</a></li>
+                                    </ul>
+                                </li>
+                                <li class="secondHoverLi">
+                                    <a href="#">İcarə</a>
+                                    <ul class="navigatorMenu">
+                                        <li><a href="#">Avtomobillər</a></li>
+                                        <li><a href="#">Avtobus və mikroavtobuslar</a></li>
+                                        <li><a href="#">Motosiklet və mopedlər</a></li>
+                                        <li><a href="#">Xüsusi texnika</a></li>
+                                        <li><a href="#">Digər</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <a href="newproduct.htm"><i class="fa-solid fa-circle-plus"></i> Yeni Elan</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+            <!-- Favorite Container -->
+            <div class="favorite-container showFav" id="favoriteContainer">
+                <div class="container">
+                    <div class="text-content">
+                        <h3>Seçilmiş Elanlar</h3>
+                        <div class="products-container" id="favoriteContainer">
+                            <img src="../assets/heartBackground.png" alt="heart Background">
+                            <span>Bəyəndiyiniz elanları ürək işarəsinə klik edərək seçilmişlərə əlavə edin.</span>
+                        </div>
+                    </div>
+                    <div class="card-container" id="cardContainer">
+                        <!-- <div class="card">
+                            <div class="image-content">
+                                <div class="icons" id="icons">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-arrows-spin arrow"></i>
+                                        <i class="fa-solid fa-percent percent"></i> 
+                                    </div>
+                                     <i class="fa-regular fa-heart heart"></i>
+                                </div>
+                                <img src="https://turbo.azstatic.com/uploads/f710x568/2023%2F01%2F11%2F11%2F19%2F41%2F5f34c8eb-5138-4d0c-b78e-8c817d98aa5f%2F52522_Mu2ZZs1LqQkRDJpgK-R_xw.jpg" alt="car img">
+                            </div>
+                            <div class="text-content">
+                                <h3>21 500 AZN</h3>
+                                <p>Kia Sorento</p>
+                                <p>2011, 2.4L, 250 141 km</p>
+                                <span>Bakı , bugün 00:19</span>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+        <!-- Footer Container -->
+        <div class="footer-container">
+            <div class="container">
+                <div class="topp-container">
+                    <div class="left-content">
+                        <span>Reklam Yerləşdirin</span>
+                    </div>
+                    <div class="right-content">
+                        <span><i class="fa-brands fa-facebook-f"></i></span>
+                        <span><i class="fa-brands fa-instagram"></i></span>
+                        <span><i class="fa-solid fa-envelope"></i> contact@contact.com</span>
+                        <span><i class="fa-solid fa-phone"></i> (012) 345 67 89</span>
+                    </div>
+                </div>
+                <div class="middle-container">
+                    <span>Qaydalar</span>
+                    <span>Qanun</span>
+                    <span>İstifadəçi razılaşması</span>
+                    <span>Məxfilik siyasəti</span>
+                    <span>Sifarişli avtomobil alan alıcı üçün tövsiyələr</span>
+                    <span>Reklam yerləşdirin</span>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="left-content">
+                   <span>
+                    Saytın Administrasiyası reklam bannerlərinin və yerləşdirilmiş elanların məzmununa görə məsuliyyət daşımır.
+                   </span>
+                </div>
+                <div class="right-content">
+                    <span>&copy; 2025 <a href="https://linkedin.com/in/ruhlanrzayev" target="_blank">Ruhlan Rzayev</a></span>
+                </div>
+            </div>
+        </footer>
+        <!-- Custom JS -->
+        <script src="../JS/main.js"></script>
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    </body>
+</html>

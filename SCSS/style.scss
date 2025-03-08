@@ -1,0 +1,1356 @@
+/*--------Primary Values--------*/
+$primary-color: #CA1016;
+$second-color: #8D94AD;
+$primary-transition: 100ms ease-in-out;
+$primary-font: 'Roboto', sans-serif;
+/*------------------------------*/
+
+/*--------Mixin Values--------*/
+@mixin flexContainer( $justify-content){
+    display: flex;
+    align-items: center;
+    justify-content: $justify-content;
+}
+/*----------------------------*/
+
+// Standart Container
+.container {
+    max-width: 968px;
+    margin: auto;
+}
+
+@media screen and (min-width: 968px) {
+// Top Container (PC) SCSS
+.top-container{
+    background-color: #FFF;
+    .container {
+        width: 968px;
+        margin: auto;
+        @include flexContainer(space-between);
+        padding: 10px 0;
+        
+        .left-content {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            
+            span {
+                cursor: pointer;
+                color: $second-color;
+                font: normal 1rem $primary-font;
+                transition: $primary-transition;
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+        }
+        .right-content {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+
+            .otherSpan, p {
+                color: #000;
+                font: normal 1rem $primary-font;
+            }
+            span {
+                cursor: pointer;
+                color: $second-color;
+                font: normal 1rem $primary-font;
+                transition: $primary-transition;
+
+                i {
+                    margin-right: 5px;
+                }
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+
+            a {
+                cursor: pointer;
+                color: $second-color;
+                font: normal 1rem $primary-font;
+                transition: $primary-transition;
+
+                i {
+                    margin-right: 5px;
+                }
+                &:hover {
+                    color: $primary-color;
+                }
+            }
+        }
+    }
+}
+
+// Navbar Container (PC) SCSS
+.navbar-container {
+    background-color: $primary-color;
+    .container {
+        padding: 20px 0;
+        @include flexContainer(space-between);
+
+        .left-content {
+            display: flex;
+            align-items: center;
+
+            .logo {
+
+                a {
+                    color: #FFF;
+                    font: 700 1.2em $primary-font;
+                    margin-right: 20px;
+                    cursor: pointer;
+                }
+            }
+
+            .menu {
+                ul {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+            
+                    li {
+                        position: relative; 
+            
+                        a {
+                            color: #FFF;
+                            font: normal 1em $primary-font;
+                            transition: $primary-transition;
+            
+                            &:hover {
+                                color: #d7d7d7;
+                            }
+                        }
+            
+                        .navigatorMenu {
+                            background-color: #FFF;
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            display: none;
+                            align-items: flex-start;
+                            flex-direction: column;
+                            border-radius: 10px;
+                            padding: 10px 15px;
+                            white-space: nowrap;
+                            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                            z-index: 10000;
+            
+                            li a {
+                                color: black;
+                                display: block;
+                            }
+                        }
+            
+                        &:hover .navigatorMenu {
+                            display: flex; 
+
+                            li {
+                                a:hover {
+                                    color: #3d3d3d;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        .right-content {
+            a {
+                border: 1px solid transparent;
+                background-color: #89cd12;
+                color: white;
+                padding: 10px;
+                border-radius: 8px;
+                cursor: pointer;
+                font: normal 1em $primary-font;
+                transition: $primary-transition;
+                &:hover {
+                    background-color: #85C01F;
+                }
+            }
+        }
+    }
+}
+
+.login-container {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    background-color: #F1F3F7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    visibility: hidden; 
+    opacity: 0;
+    transition: $primary-transition;
+
+    i {
+        position: fixed;
+        top: 75px;
+        right: 75px;
+        border: 1px solid #707070;
+        color: #707070;
+        padding: 10px 12px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .otherP {
+        position: fixed;
+        font: normal .9rem $primary-font;
+        bottom: 50px;
+        color: #707070;
+    }
+
+    .container {
+        background-color: #FFF;
+        // box-shadow: 0 0 1px #333;
+        // width: 400px;
+        padding: 10px 20px;
+        .content {
+            @include flexContainer(center);
+            flex-direction: column;
+            padding: 20px;
+
+            span {
+                max-width: 300px;
+                text-align: center;
+                font: normal 1rem $primary-font;
+                color: #707070;
+            }
+
+            h1 {
+                font: 700 2rem $primary-font;
+            }
+
+            * {
+                margin: 10px 0;
+            }
+            
+            button {
+                padding: 15px 60px;
+                border: 1px solid transparent;
+                border-radius: 5px;
+                cursor: pointer;
+
+                &.firstButton {
+                    background-color: #4B8AF9;
+                    font: normal 1rem $primary-font;
+                    color: white;
+                }
+
+                &.secondButton {
+                    background-color: transparent;
+                    border: 1px solid #4B8AF9;
+                    font: normal 1rem $primary-font;
+                    color: #4B8AF9;
+                }
+            }
+        }
+    }
+    
+    &.active {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+// Bookmark (PC) SCSS
+.favorite-container {
+    display: none;
+    .container {
+        height: 100vh;
+        h3 {
+            font: bold 1rem $primary-font;
+            text-transform: uppercase;
+            padding: 25px 0;
+        }
+        
+        .products-containerr {
+            width: 100%;
+            @include flexContainer(center);
+            flex-direction: column;
+            background-color: #FAFAFA;
+            height: 90vh;
+            img {
+                max-width: 350px;
+            }
+            span {
+                font: normal 1rem $primary-font;
+            }
+            &.closeTab {
+                display: none;
+            }
+        }
+        .card-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            .card {
+                cursor: pointer;
+                background-color: #FFF;
+                position: relative;
+                width: 220px;
+                height: 270px;
+                border-radius: 10px;
+                overflow: hidden;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                flex-direction: column;
+                transition: $primary-transition;
+                margin: 10px;
+                .icons {
+                    @include flexContainer(space-between);
+                    width: 220px;
+                    position: absolute;
+                    padding: 10px;
+                    color: #FFF;
+                    font: normal 1rem $primary-font;
+                    .arrow {
+                        background-color: green;
+                        border-radius: 50%;
+                        padding: 5px;
+                    }
+                    .percent {
+                        background-color: orange;
+                        border-radius: 50%;
+                        padding: 5px;
+                    }
+                    .heart {
+                        font-size: 1.5rem;
+                        &:active {
+                            scale: .9;
+                        }
+                    }
+                }
+                .image-content {
+                    width: 220px;
+                    height: 130px;
+
+                    img {   
+                        width: 220px;
+                        height: 130px;
+                        object-fit: cover;
+                    }
+                }
+                .text-content {
+                    font: normal 1rem $primary-font;
+                    margin: 5px 10px;
+                    span {
+                        color: $second-color;
+                    }
+                }
+                &:hover {
+                    box-shadow: 0 2px 2px #33333352;
+                }
+            }
+        }
+    }
+    &.showFav{
+        display: initial!important
+    }
+}
+
+// Product Container (PC) SCSS
+.product-container {
+    font-family: $primary-font;
+    .container {
+        
+        .top-text {
+            background-color: #F1F3F7;
+            padding: 20px 40px;
+
+            span {
+                font: bold 1rem $primary-font;
+            }
+        }
+        .text-content {
+            padding: 20px 40px;
+            ul {
+                li {
+                    list-style: disc;
+                    font: normal .9rem/1.3rem Helvetica, sans-serif;
+                    
+                }
+            }
+        }
+        .inputs-container {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: row;
+            gap: 50px;
+            font: normal .9em $primary-font;
+            * {
+                margin: 5px 0;
+            }
+            .left-content, .right-content {
+                width: 50%;
+                .inputs {
+                    display: flex;
+                    align-items: center;
+                    .text {width: 40%}
+                    .select-area { width: 60%}
+                    .text, .select-area {
+
+                        select {
+                            width: 300px;
+                            padding: 5px;
+                            outline: none;
+                            border: 1px solid #cecece;
+                            border-radius: 5px;
+                        }
+
+                        span {
+                            color: $primary-color;
+                        }
+
+                        input[type="text"] {
+                            width: 100px;
+                            padding: 5px;
+                            outline: none;
+                            border: 1px solid #cecece;
+                            border-radius: 5px;
+                        }
+
+                        .checks {
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                        }
+                    }
+                }
+
+            }
+
+            .right-content {
+                .inputs {
+                    .select-area {
+                        input {
+                            width: 300px!important;
+                        }
+                    }
+                }
+            }
+
+            input[type="radio"]{
+                width: 20px;
+                height: 20px;
+                appearance: none;
+                border: 1px solid #8d8d8d;
+                background-color: #F3F3F3;
+                border-radius: 50%;
+                position: relative;
+                
+                &:checked::before {
+                    content: "";
+                    width: 13px;
+                    height: 13px;
+                    background-color: $primary-color;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+            }
+        }   
+        .info-content {
+            font: normal .9em $primary-font;
+            .content {
+                width: 100%;
+                display: flex;
+                align-items: flex-start;
+                .text {
+                    width: 20%;
+                }
+                .inputs {
+                    width: 80%;
+                }
+                .otherInputs {
+                    display: flex;
+                    flex-direction: column;
+                    .firstInt {
+                        display: flex;
+                        margin-bottom: 20px;
+                    }
+                    p {
+                        margin: 10px 0 0 15px;
+                        width: 80%;
+                        font: normal .85em  $primary-font;
+                        color: $second-color;
+                    }
+                }
+
+                input[type="radio"]{
+                    width: 15px;
+                    height: 15px;
+                    appearance: none;
+                    border-radius: 5px;
+                    border: 1px solid #8d8d8d;
+                    background-color: #F3F3F3;
+                    position: relative;
+                    
+                    &:checked::before {
+                        content: "";
+                        width: 10px;
+                        height: 10px;
+                        border-radius: 3px;
+                        background-color: $primary-color;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+            .secondCont {
+                margin: 25px 0;
+
+                .inputs {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    
+                input[type="radio"]{
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 5px;
+                    
+                    &:checked::before {
+                        content: "";
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 3px;
+                    }
+                }
+                }
+            }
+
+            .thirdCont {
+                margin: 25px 0;
+                * {
+                    margin: 5px 0;
+                }
+                .inputs {
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    span {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                    }
+                    input[type="radio"]{
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 5px;
+                        
+                        &:checked::before {
+                            content: "";
+                            width: 12px;
+                            height: 12px;
+                            border-radius: 3px;
+                        }
+                    }
+                }
+            }
+
+            .fourthCont {
+                
+                .inputs {
+                    position: relative;
+                    input {
+                        width: 300px;
+                        padding: 5px;
+                        outline: none;
+                        border: 1px solid #cecece;
+                        border-radius: 5px;
+                        margin-right: 10px;
+                    }
+                    span {
+                        cursor: pointer;
+                        color: #0655ff;
+                        transition: $primary-transition;
+                        position: relative;
+
+                        &:hover + p {
+                            display: block;
+                        }
+                    }
+
+                    p {
+                        display: none;
+                        position: absolute;
+                        right: 200px;
+                        bottom: 30px;
+                        width: 300px;
+
+                        img {
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+
+            .lastCont {
+                margin: 25px 0;
+
+                .inputs {
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+
+                    textarea {
+                        width: 100%;
+                        height: 100px;
+                        border-radius: 5px;
+                        border: 1px solid #cecece;
+                        outline: none;
+                        padding: 5px 10px;
+                    }
+                    span {
+                        font: normal 1em $primary-font;
+                        color: gray;
+                    }
+                }
+            }
+        }
+        .avto-content {
+            .inputs {
+                display: flex;
+                align-items: flex-start;
+                flex-direction: row;
+                gap: 20px;
+                padding: 10px 0;
+                * {
+                    margin: 5px 0;
+                }
+                div {
+                    width: 100%;
+                }
+                .align-items-center {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                }
+
+                input[type="radio"]{
+                    width: 20px;
+                    height: 20px;
+                    appearance: none;
+                    border-radius: 5px;
+                    border: 1px solid #8d8d8d;
+                    background-color: #F3F3F3;
+                    position: relative;
+                    
+                    &:checked::before {
+                        content: "";
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 3px;
+                        background-color: $primary-color;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
+                }
+            }
+        }
+        .gallery-content {
+            padding: 20px 0;
+            .info-content {
+                background-color: #F6F7FA;
+                padding: 10px 15px;
+                margin: 10px;
+                border-radius: 5px;
+
+                p {
+                    color: $primary-color;
+                    margin-bottom: 5px;
+                }
+            }
+            .photo-upload {
+                display: flex;
+                align-items: flex-start;
+                .first, .second, .third {
+                    display: flex;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 10px;
+                    color: $second-color;
+                    font: normal .9em $primary-font;
+                }
+                input {
+                    display: none;
+                }
+                label {
+                    cursor: pointer;
+                    display: flex;  
+                    align-items: center;  
+                    justify-content: center; 
+                    text-align: center; 
+                    height: 150px;
+                    width: 200px;
+                    border-radius: 6px;
+                    border: 1px solid #F3F3F3;
+                    transition: $primary-transition;
+                    line-height: normal;  
+                    margin-right: 10px;
+                    color: blue;
+                
+                
+                    
+                    transition: $primary-transition;
+                    &:hover {
+                        color: blue;
+                        border: 1px solid blue;
+                    }
+                }
+                .other {
+                    background: url('../assets/on.png') center/cover;
+                }
+            }
+        }
+        .contact-container {
+            padding: 20px 0;
+            // font: normal .9em $primary-font;
+            // .content {
+            //     width: 100%;
+            //     display: flex;
+            //     align-items: flex-start;
+            //     .text {
+            //         width: 20%;
+            //     }
+            //     .inputs {
+            //         width: 80%;
+            //     }
+
+            .contact-top-text {
+                margin: 10px 0;
+                span {
+                    font: normal .9em $primary-font;
+                    color: gray;
+                }
+            }
+            .input {
+                display: flex;
+                align-items: center;
+                .partFirst {
+                    margin: 10px 0;
+                    width: 20%;
+                    span {
+                        color: $primary-color;
+                    }
+                }
+                .partSecond {
+                    margin: 10px 0;
+                    width: 60%;
+                    input, select {
+                        width: 300px;
+                        padding: 5px;
+                        outline: none;
+                        border: 1px solid #cecece;
+                        border-radius: 5px;
+                    }
+                }
+                .other {
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    span {
+                        font: normal .9em $primary-font;
+                        color: gray;
+                    }
+                }
+
+                button {
+                    cursor: pointer;
+                    width: 300px;
+                    outline: none;
+                    background-color: $primary-color;
+                    border: 1px solid transparent;
+                    border-radius: 5px;
+                    padding: 10px;
+                    font: normal 1em $primary-font;
+                    color: #FFF;
+                    transition: $primary-transition;
+                    &:active {
+                        scale: .9;
+                    }
+
+                    &:hover {
+                        background-color: red;
+                    }
+                }
+            }
+            .alt-text {
+                font: normal .9em $primary-font;
+                color: $second-color;
+                margin: 10px 0;
+                span {
+                    cursor: pointer;
+                    color: blue;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+// Inputs Container (PC) SCSS
+.inputs-containerr {
+    display: flex;
+    padding: 30px 0;
+    background-color: #EBEDF3;
+    .container {
+        .firstRow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            select {
+                font: normal 1em $primary-font;
+                width: 225px;
+                padding: 12px 10px;
+                outline: none;
+                border: 1px solid #cecece;
+                border-radius: 5px;
+                background-color: #FFF;
+                color: $second-color;
+            }
+
+            .colRadio {
+                // @include flexContainer(space-between);
+                border: 1px solid #cecece;
+                border-radius: 10px;
+
+                input[type="radio"]{
+                    display: none;
+                }
+                label {
+                    font: normal 1em $primary-font;
+                    cursor: pointer;
+                    color: $second-color;
+                    font: normal 1rem $primary-font;
+                    background-color: #FFF;
+                    padding: 10px 15px;
+                    margin-right: -5px;
+                    border: 1px solid #cecece;
+                }
+                label:first-of-type {
+                    border-radius: 10px 0 0 10px;
+                }
+                label:last-of-type {
+                    border-radius: 0 10px 10px 0;
+                }
+
+                input:checked + label {
+                    background-color: $primary-color;
+                    color: #FFF;
+                }
+
+            }
+        }
+        .secondRow {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            // justify-content: space-between;g
+            gap: 20px;
+
+            #priceMin, #priceMax {
+                font: normal 1em $primary-font;
+                width: 112px;
+                margin-right: -5px;
+                outline: none;
+                padding: 12px 10px;
+                border: 1px solid #cecece;
+            }
+            #priceMin { border-radius: 5px 0 0 5px;}
+            #priceMax { border-radius: 0 5px 5px 0;}
+            #indexBanType {
+                font: normal 1em $primary-font;
+                width: 225px;
+                padding: 12px 10px;
+                outline: none;
+                border: 1px solid #cecece;
+                border-radius: 5px;
+                background-color: #FFF;
+                color: $second-color;
+            }
+            #indexCurrency {
+                font: normal .85em $primary-font;
+                color: #333;
+                width: 75px;
+                padding: 10px 12px;
+                border: 1px solid #cecece;
+                outline: none;
+                border-radius: 5px;
+            }
+            .kreditBarter {
+                input {
+                    display: none;
+                }
+                label {
+                    font: normal 1em $primary-font;
+                    cursor: pointer;
+                    color: $second-color;
+                    font: normal 1rem $primary-font;
+                    background-color: #FFF;
+                    padding: 12px 10px;
+                    margin-right: 10px;
+                    border: 1px solid #cecece;
+                    border-radius: 8px;
+                    transition: $primary-transition;
+                    color: #333;
+                    &:hover {
+                        border: 1px solid #333;
+                    }
+                }
+
+                input:checked + label {
+                    background-color: #ff9b9b52;
+                    color: $primary-color;
+                    border: 1px solid $primary-color;
+                }
+
+            }
+            #indexYearMax , #indexYearMin {
+                font: normal 1em $primary-font;
+                color: $second-color;
+                width: 110px;
+                margin-right: -5px;
+                outline: none;
+                padding: 12px 10px;
+                border: 1px solid #cecece;
+            }
+            #indexYearMax { border-radius: 5px 0 0 5px;}
+            #indexYearMin { border-radius: 0 5px 5px 0;}
+        }
+
+        .addInputs {
+            display: none;
+            transition: 200ms ease;
+            .thirdRow {
+                @include flexContainer(space-between);
+    
+                select {
+                    font: normal 1em $primary-font;
+                    width: 225px;
+                    padding: 12px 10px;
+                    outline: none;
+                    border: 1px solid #cecece;
+                    border-radius: 5px;
+                    background-color: #FFF;
+                    color: $second-color;
+                }
+            }
+
+            .fourthRow {
+                margin: 10px 0;
+                @include flexContainer(space-between);  
+                
+                select, input {
+                    font: normal 1em $primary-font;
+                    width: 150px;
+                    padding: 12px 10px;
+                    outline: none;
+                    border: 1px solid #cecece;
+                    background-color: #FFF;
+                    color: $second-color;
+                }
+                #hecmMin { border-radius: 5px 0 0 5px; } 
+                #hecmMax { border-radius: 0 5px 5px 0; }
+                .inp1 { border-radius: 5px 0 0 5px; }
+                .inp2 { border-radius: 0 5px 5px 0; }
+
+                .col {
+                    *{
+                        margin-right: -5px;
+                    }
+                }
+            }
+            .fifthRow {
+                margin: 10px 0;
+                @include flexContainer(space-between);
+                .colRadio {
+                    border: 1px solid #cecece;
+                    border-radius: 10px;
+    
+                    input[type="radio"]{
+                        display: none;
+                    }
+                    label {
+                        font: normal 1em $primary-font;
+                        cursor: pointer;
+                        color: $second-color;
+                        font: normal 1rem $primary-font;
+                        background-color: #FFF;
+                        padding: 10px 15px;
+                        margin-right: -5px;
+                        border: 1px solid #cecece;
+                    }
+                    label:first-of-type {
+                        border-radius: 10px 0 0 10px;
+                    }
+                    label:last-of-type {
+                        border-radius: 0 10px 10px 0;
+                    }
+    
+                    input:checked + label {
+                        background-color: $primary-color;
+                        color: #FFF;
+                    }
+    
+                }
+
+                select {
+                    font: normal 1em $primary-font;
+                    width: 225px;
+                    padding: 12px 10px;
+                    outline: none;
+                    border: 1px solid #cecece;
+                    border-radius: 5px;
+                    background-color: #FFF;
+                    color: $second-color;
+                }
+            }
+            .sixthRow {
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+                .lastCol {
+                    input {
+                        display: none;
+                    }
+                    label {
+                        font: normal 1em $primary-font;
+                        cursor: pointer;
+                        color: $second-color;
+                        font: normal 1rem $primary-font;
+                        background-color: #FFF;
+                        padding: 12px 10px;
+                        margin-right: 10px;
+                        border: 1px solid #cecece;
+                        border-radius: 8px;
+                        transition: $primary-transition;
+                        &:hover {
+                            border: 1px solid #333;
+                        }
+                    }
+    
+                    input:checked + label {
+                        background-color: #ff9b9b52;
+                        color: $primary-color;
+                        border: 1px solid $primary-color;
+                    }
+                }
+                select {
+                    font: normal 1em $primary-font;
+                    width: 225px;
+                    padding: 12px 10px;
+                    outline: none;
+                    border: 1px solid #cecece;
+                    border-radius: 5px;
+                    background-color: #FFF;
+                    color: $second-color;
+                }
+            }
+            .text-content {
+                margin: 10px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .left { 
+                    width: 15%;
+                    span {
+                        font: normal .9rem $primary-font;
+                        color: #333;
+                    }
+                }
+                .right { 
+                    width: 85%;
+                    hr {
+                        background-color: #eaeaea6a;
+                    }
+                }
+            }
+            .lastRow {
+                margin: 20px 0;
+                display: flex;
+                flex-direction: column;
+                gap: 35px;
+                .row {
+                    display: flex;
+                    align-items: center;
+
+                    input {
+                        display: none;
+                    }
+                    label {
+                        // font: normal 1em $primary-font;
+                        cursor: pointer;
+                        color: #333;
+                        font: normal 1rem $primary-font;
+                        background-color: #FFF;
+                        padding: 10px 8px;
+                        margin-right: 5px;
+                        border: 1px solid #cecece;
+                        border-radius: 8px;
+                        transition: $primary-transition;
+                        &:hover {
+                            border: 1px solid #333;
+                        }
+                    }
+
+                    input:checked + label {
+                        background-color: #ff9b9b52;
+                        color: $primary-color;
+                        border: 1px solid $primary-color;
+                    }
+                }
+            }
+
+            &.active {
+                display: initial!important;
+            }
+        }
+
+        .alt-text-content {
+            margin-top: 20px;
+            @include flexContainer(space-between);
+            .left-text {
+                p {
+                    font: normal .9rem $primary-font;
+                    span {
+                        color: rgb(70, 138, 255);
+                    }
+                }
+            }
+            .right-text {
+                width: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                
+                span, p {
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    font: normal 1rem $primary-font;
+                    color: $primary-color;
+                }
+
+                button {
+                    cursor: pointer;
+                    background-color: $primary-color;
+                    outline: none;
+                    border: 1px solid transparent;
+                    color: #FFF;
+                    padding: 15px 40px;
+                    border-radius: 5px;
+                    font-family: $primary-font;
+                    transition: $primary-transition;
+                    &:hover {
+                        background-color: rgb(182, 11, 11);
+                    }
+                }
+            }
+        }
+    }
+    &.closeHome {
+        display: none;
+    }
+}
+.inputs-alt {
+    display: block;
+    padding: 20px 0;
+    background-color: #F1F3F7; 
+    .container {
+        h3 {
+            font: bold 1.1rem $primary-font;
+            text-transform: uppercase;
+        }
+    }
+    &.closeHome {
+        display: none;
+    }
+}
+
+// Product Container (PC) SCSS
+.products-container {
+    display: flex;
+    padding: 20px 40px;
+    background-color: #F6F7FA;
+    .container {
+
+        .card-container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            .card {
+                cursor: pointer;
+                background-color: #FFF;
+                position: relative;
+                width: 220px;
+                height: 270px;
+                border-radius: 10px;
+                overflow: hidden;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                flex-direction: column;
+                transition: $primary-transition;
+                margin: 10px;
+                .icons {
+                    @include flexContainer(space-between);
+                    width: 220px;
+                    position: absolute;
+                    padding: 10px;
+                    color: #FFF;
+                    font: normal 1rem $primary-font;
+                    .arrow {
+                        background-color: green;
+                        border-radius: 50%;
+                        padding: 5px;
+                    }
+                    .percent {
+                        background-color: orange;
+                        border-radius: 50%;
+                        padding: 5px;
+                    }
+                    .heart {
+                        font-size: 1.5rem;
+                        &:active {
+                            scale: .9;
+                        }
+                    }
+                }
+                .image-content {
+                    width: 220px;
+                    height: 170px;
+
+                    img {   
+                        width: 220px;
+                        height: 170px;
+                        object-fit: cover;
+                    }
+                }
+                .text-content {
+                    font: normal 1rem $primary-font;
+                    margin: 5px 10px;
+                    span {
+                        color: $second-color;
+                    }
+                }
+                &:hover {
+                    box-shadow: 0 2px 2px #33333352;
+                }
+            }
+        }
+    }
+    &.closeHome {
+        display: none;
+    }
+}
+
+// Footer Container and Footer (PC) SCSS
+.footer-container {
+    background-color: #F1F3F7;
+
+    .container {
+        padding-top: 10px;
+
+        .topp-container {
+            border-top: 1px solid #CCC;
+            border-bottom: 1px solid #CCC;
+            @include flexContainer(space-between);
+            padding: 20px 0;
+            .left-content {
+                span {
+                    cursor: pointer;
+                    font: normal 1rem $primary-font;
+                    transition: $primary-transition;
+
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+            .right-content {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                span {
+                    cursor: pointer;
+                    font: normal 1.1rem $primary-font;
+                    transition: $primary-transition;
+                    color: $second-color;
+
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+
+        .middle-container {
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            span {
+                font: normal .85rem $primary-font;
+                cursor: pointer;
+                transition: $primary-transition;
+                &:hover {
+                    color: $primary-color;
+                }
+
+            }
+        }
+    }
+}
+footer {
+    background-color: $primary-color;
+    padding: 20px 0;
+    .container {
+        @include flexContainer(space-between);
+        color: #FFF;
+
+        .left-content {
+            max-width: 400px;
+            span {
+                font: normal .8rem $primary-font;
+            }
+        }
+
+        .right-content {
+            span {
+                cursor: pointer;
+                color: #FFF;
+                font: normal 1rem $primary-font;
+
+                a {
+                    text-decoration: underline;
+                    font: normal 1rem $primary-font;
+                    color: #FFF;
+                }
+            }
+        }
+    }
+}
+}

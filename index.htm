@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="author" content="@ruhlanrzayev" />
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Masin.Az: Avtomobilləri burada seçirlər!</title>
+
+        <!-- Fav Icon -->
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="CSS/reset.css" />
+        <link rel="stylesheet" href="CSS/responsive.css" />
+        <link rel="stylesheet" href="CSS/style.css" />
+
+        <!-- Custom SCSS -->
+        <link rel="stylesheet" href="SCSS/responsive.scss" />
+        <link rel="stylesheet" href="SCSS/style.scss" />
+
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </head>
+    <body>
+        <div class="pc-body">
+            <!-- Top Container (PC) -->
+            <div class="top-container">
+                <div class="container">
+                    <div class="left-content">
+                        <span>Abc.az</span>
+                        <span>Abcd.az</span>
+                        <span>Abcde.az</span>
+                    </div>
+                    <div class="right-content">
+                        <p>Dəstək: <span class="otherSpan">(012) 345-67-89</span></p>
+                        <span>Yardım</span>
+                        <span>RU</span>
+                        <a id="favoriteCont"><i class="fa-solid fa-heart"></i> Seçilmişlər</a>
+                        <span><i class="fa-solid fa-user"></i> Giriş</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Login Container -->
+            <div class="login-container">
+                <i class="fa-solid fa-x"></i>
+                <div class="container">
+                    <div class="content">
+                        <h1>MASIN.AZ</h1>
+                        <span>Öz elanlarınıza baxmağın, onları redaktə və bərpa etməyin rahat yolu</span>
+                        <button class="firstButton">Telefon nömrəsi ilə giriş</button>
+                        <button class="secondButton">Biznes hesabınıza giriş</button>
+                    </div>
+                </div>
+                <p class="otherP">Saytda avtorizasiyadan keçməklə siz Masin.az-ın İstifadəçi razılaşmasını və Qaydalarını qəbul etdiyinizi təsdiqləmiş olursunuz.</p>
+            </div>
+            <!-- Navbar Container (PC) -->
+            <div class="navbar-container">
+                <nav>
+                    <div class="container">
+                        <div class="left-content">
+                            <div class="logo"><a id="homeCont">MASIN.AZ</a></div>
+                            <div class="menu">
+                                <ul>
+                                    <li><a href="#">Bütün elanlar</a></li>
+                                    <li><a href="#">Dilerlər</a></li>
+                                    <li><a href="#">Avtokataloq</a></li>
+                                    <li><a href="#">Moto</a></li>
+                                    <li class="firstHoverLi">
+                                        <a href="#">Ehtiyyat hissələr və aksesuarlar</a>
+                                        <ul class="navigatorMenu">
+                                            <li><a href="#">Akseuarlar</a></li>
+                                            <li><a href="#">Audio və video texnika</a></li>
+                                            <li><a href="#">Avtokosmetika və Avtokimya</a></li>
+                                            <li><a href="#">Ehtiyat hissələri</a></li>
+                                            <li><a href="#">GPS naviqatorlar</a></li>
+                                            <li><a href="#">Qeydiyyat nişanları</a></li>
+                                            <li><a href="#">Siqnalizasiyalar</a></li>
+                                            <li><a href="#">Videoqeydiyyatçılar</a></li>
+                                            <li><a href="#">Şinlər, disklər və təkərlər</a></li>
+                                            <li><a href="#">Digər</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="secondHoverLi">
+                                        <a href="#">İcarə</a>
+                                        <ul class="navigatorMenu">
+                                            <li><a href="#">Avtomobillər</a></li>
+                                            <li><a href="#">Avtobus və mikroavtobuslar</a></li>
+                                            <li><a href="#">Motosiklet və mopedlər</a></li>
+                                            <li><a href="#">Xüsusi texnika</a></li>
+                                            <li><a href="#">Digər</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="right-content">
+                            <a href="HTML/newproduct.htm"><i class="fa-solid fa-circle-plus"></i> Yeni Elan</a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- Inputs Container (PC) -->
+            <div class="inputs-containerr" id="inputsContainer">
+                <div class="container">
+                    <div class="firstRow">
+                        <div class="col">
+                            <select id="indexMarka">
+                                <option value="DefaultMarka" selected="selected" disabled="disabled">Marka</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select id="indexModel" disabled="disabled">
+                                <option value="DefaultModel" selected="selected" disabled="disabled">Model</option>
+                            </select>
+                        </div>
+                        <div class="col colRadio" id="colRadio">
+                            <input type="radio" id="allP" name="selectProduct" checked="checked">
+                            <label for="allP" onclick="filterProducts('all')">Hamısı</label>
+                            <input type="radio" id="newP" name="selectProduct">
+                            <label for="newP" onclick="filterProducts('new')">Yeni</label>
+                            <input type="radio" id="processed" name="selectProduct">
+                            <label for="processed" onclick="filterProducts('processed')">Sürülmüş</label>
+                        </div>
+                        <div class="col">
+                            <select id="indexCity">
+                                <option value="DefaultCity" selected="selected" disabled="disabled">Şəhər</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="secondRow">
+                        <div class="col">
+                            <input type="text" id="priceMin" placeholder="Qiymət, min.">
+                            <input type="text" id="priceMax" placeholder="maks.">
+                        </div>
+                        <div class="col">
+                            <select id="indexCurrency">
+                                <option value="AZN" selected="selected" id="azn">AZN</option>
+                                <option value="USD">USD</option>
+                                <option value="EUR">EUR</option>
+                            </select>
+                        </div>
+                        <div class="col kreditBarter">
+                            <input type="checkbox" name="kredit" id="kredit">
+                            <label for="kredit" onclick="filterKredit()">Kredit</label>
+                            <input type="checkbox" name="barter" id="barter">
+                            <label for="barter" onclick="filterBarter()">Barter</label>
+                        </div>
+                        <div class="col">
+                            <select id="indexBanType">
+                                <option value="DefaultBanType" selected="selected" disabled="disabled">Ban növü</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select id="indexYearMin">
+                                <option value="DefaultMax" selected="selected" disabled="disabled">İl, min.</option>
+                            </select>
+                            <select id="indexYearMax">
+                                <option value="DefaultMin" selected="selected" disabled="disabled">maks.</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="addInputs" id="addInputsContainer">
+                        <div class="thirdRow">
+                            <div class="col">
+                                <select id="indexColor">
+                                    <option value="DefaultValue">Rəng</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="indexColor">
+                                    <option value="DefaultValue">Yanacaq Növü</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="indexColor">
+                                    <option value="DefaultValue">Ötürücü</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="indexColor">
+                                    <option value="DefaultValue">Sürətlər Qutusu</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="fourthRow">
+                            <div class="col">
+                                <select id="hecmMin">
+                                    <option value="DefaultValue">Həcm, min.</option>
+                                </select>
+                                <select id="hecmMax">
+                                    <option value="DefaultValue">maks.</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="inp1" placeholder="Güc, min.">
+                                <input type="text" class="inp2" placeholder="maks.">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="inp1"  placeholder="Yürüş, min.">
+                                <input type="text" class="inp2" placeholder="maks.">
+                            </div>
+                        </div>
+                        <div class="fifthRow">
+                            <div class="col colRadio">
+                                <input type="radio" id="all" name="selectValue" checked="checked">
+                                <label for="all">Hamısı</label>
+                                <input type="radio" id="diler" name="selectValue">
+                                <label for="diler">Dilerlər</label>
+                                <input type="radio" id="personal" name="selectValue">
+                                <label for="personal">Şəxsi</label>
+                            </div>
+                            <div class="col">
+                                <select id="sahibSay">
+                                    <option value="DefaultValue">Sahiblərinin sayı</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="yerSay">
+                                    <option value="DefaultValue">Yerlərinin sayı</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select id="bazar">
+                                    <option value="DefaultValue">Hansı bazar üçün yığılıb</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="sixthRow">
+                            <div class="col lastCol">
+                                <input type="checkbox" name="vuruq" id="vuruq">
+                                <label for="vuruq">Vuruğu yoxdur</label>
+                                <input type="checkbox" name="reng" id="reng">
+                                <label for="reng">Rənglənməyib</label>
+                                <input type="checkbox" name="qeza" id="qeza">
+                                <label for="qeza">Yalnız qəzalı avtomobillər</label>
+                            </div>
+                            <div class="col">
+                                <div class="col">
+                                    <select id="status">
+                                        <option value="DefaultValue">Status</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <div class="left"><span>Avtomobilin təchizatı</span></div>
+                            <div class="right"><hr></div>
+                        </div>
+                        <div class="lastRow">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="checkbox" name="disk" id="disk">
+                                    <label for="disk">Yüngül lehimli disklər</label>
+                                </div>
+                                <div class="col">
+                                    <input type="checkbox" name="abs" id="abs">
+                                    <label for="abs">ABS</label>
+                                </div>
+                                <div class="col">
+                                    <input type="checkbox" name="lyk" id="lyk">
+                                    <label for="lyk">Lyuk</label>
+                                </div>
+                                <div class="col">
+                                    <input type="checkbox" name="yagis" id="yagis">
+                                    <label for="yagis">Yağış sensoru</label>
+                                </div>
+                                <div class="col">
+                                    <input type="checkbox" name="merkez" id="merkez">
+                                    <label for="merkez">Mərkəzi qapanma</label>
+                                </div>
+                                <div class="col">
+                                    <input type="checkbox" name="radar" id="radar">
+                                    <label for="radar">Park radarı</label>
+                                </div>
+                                <div class="col">
+                                    <input type="checkbox" name="kond" id="kond">
+                                    <label for="kond">Kondisioner</label>
+                                </div>
+                                <div class="col">
+                                    <input type="checkbox" name="otrcq" id="otrcq">
+                                    <label for="otrcq">Oturacaqların isidilməsi</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input type="checkbox" name="sln" id="sln">
+                                    <label for="sln">Dəri salon</label>
+                                </div>
+                                <div class="col">
+                                    <input type="checkbox" name="lamp" id="lamp">
+                                    <label for="lamp">Ksenon lampalar</label>
+                                </div>
+                                <div class="col">
+                                    <input type="checkbox" name="arxa" id="arxa">
+                                    <label for="arxa">Arxa görüntü kamerası</label>
+                                </div>
+                                <div class="col">
+                                    <input type="checkbox" name="perde" id="perde">
+                                    <label for="perde">Yan pərdələr</label>
+                                </div>
+                                <div class="col">
+                                    <input type="checkbox" name="vent" id="vent">
+                                    <label for="vent">Oturacaqların ventilyasiyası</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alt-text-content">
+                        <div class="left-text">
+                            <p>Bu gün: <span>1612 yeni elan</span></p>
+                        </div>
+                        <div class="right-text">
+                            <p id=clearSelects onclick="clearInputs()">Sıfırla</p>
+                            <span id="filterInputs">Daha çox filtr <i class="fa-solid fa-angle-down"></i></span>
+                            <button onclick="filterProducts()">Elanları göstər</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="inputs-alt" id="inputsAltContainer">
+                <div class="container">
+                    <h3>Premium Elanlar</h3>
+                </div>
+            </div>  
+            <!-- Products Container -->
+            <div class="products-container" id="productsContainer">
+                <div class="container">
+                    <div class="card-container" id="cardContainer">
+                        <!-- <div class="card">
+                            <div class="image-content">
+                                <div class="icons" id="icons">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-arrows-spin arrow"></i>
+                                        <i class="fa-solid fa-percent percent"></i> 
+                                    </div>
+                                     <i class="fa-regular fa-heart heart"></i>
+                                </div>
+                                <img src="https://turbo.azstatic.com/uploads/f710x568/2023%2F01%2F11%2F11%2F19%2F41%2F5f34c8eb-5138-4d0c-b78e-8c817d98aa5f%2F52522_Mu2ZZs1LqQkRDJpgK-R_xw.jpg" alt="car img">
+                            </div>
+                            <div class="text-content">
+                                <h3>21 500 AZN</h3>
+                                <p>Kia Sorento</p>
+                                <p>2011, 2.4L, 250 141 km</p>
+                                <span>Bakı , bugün 00:19</span>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- Favorite Container -->
+            <div class="favorite-container" id="favoriteContainer">
+                <div class="container">
+                    <div class="text-content" id="textContent">
+                        <h3>Seçilmiş Elanlar</h3>
+                        <div class="products-containerr" id="favConPro">
+                            <img src="../assets/heartBackground.png" alt="heart Background">
+                            <span>Bəyəndiyiniz elanları ürək işarəsinə klik edərək seçilmişlərə əlavə edin.</span>
+                        </div>
+                    </div>
+                    <div class="card-container" id="favoriteCardContainer">
+                        <!-- <div class="card">
+                            <div class="image-content">
+                                <div class="icons" id="icons">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-arrows-spin arrow"></i>
+                                        <i class="fa-solid fa-percent percent"></i> 
+                                    </div>
+                                     <i class="fa-regular fa-heart heart"></i>
+                                </div>
+                                <img src="https://turbo.azstatic.com/uploads/f710x568/2023%2F01%2F11%2F11%2F19%2F41%2F5f34c8eb-5138-4d0c-b78e-8c817d98aa5f%2F52522_Mu2ZZs1LqQkRDJpgK-R_xw.jpg" alt="car img">
+                            </div>
+                            <div class="text-content">
+                                <h3>21 500 AZN</h3>
+                                <p>Kia Sorento</p>
+                                <p>2011, 2.4L, 250 141 km</p>
+                                <span>Bakı , bugün 00:19</span>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Container -->
+            <div class="footer-container">
+                <div class="container">
+                    <div class="topp-container">
+                        <div class="left-content">
+                            <span>Reklam Yerləşdirin</span>
+                        </div>
+                        <div class="right-content">
+                            <span><i class="fa-brands fa-facebook-f"></i></span>
+                            <span><i class="fa-brands fa-instagram"></i></span>
+                            <span><i class="fa-solid fa-envelope"></i> contact@contact.com</span>
+                            <span><i class="fa-solid fa-phone"></i> (012) 345 67 89</span>
+                        </div>
+                    </div>
+                    <div class="middle-container">
+                        <span>Qaydalar</span>
+                        <span>Qanun</span>
+                        <span>İstifadəçi razılaşması</span>
+                        <span>Məxfilik siyasəti</span>
+                        <span>Sifarişli avtomobil alan alıcı üçün tövsiyələr</span>
+                        <span>Reklam yerləşdirin</span>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="container">
+                    <div class="left-content">
+                    <span>
+                        Saytın Administrasiyası reklam bannerlərinin və yerləşdirilmiş elanların məzmununa görə məsuliyyət daşımır.
+                    </span>
+                    </div>
+                    <div class="right-content">
+                        <span>&copy; 2025 <a href="https://linkedin.com/in/ruhlanrzayev" target="_blank">Ruhlan Rzayev</a></span>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+
+        <!-- Custom JS -->
+        <script src="JS/main.js"></script>
+        <script src="JS/mainProducts.js"></script>
+        <script src="JS/favorite.js"></script>
+        <script>
+            // Add inputs on home page
+            document.addEventListener("DOMContentLoaded" , function () {
+                const inputsCont = document.getElementById('addInputsContainer');
+                const filterInputs = document.getElementById('filterInputs');
+
+                filterInputs.addEventListener("click", function () {
+                    inputsCont.classList.toggle("active");
+                    if (inputsCont.classList.contains("active")) {
+                        filterInputs.innerHTML = `Gizlət <i class="fa-solid fa-angle-up"></i>`
+                    } else {
+                        filterInputs.innerHTML = `Daha çox filtr <i class="fa-solid fa-angle-down"></i>`
+                    }
+                });
+            })
+        </script>
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    </body>
+</html>
